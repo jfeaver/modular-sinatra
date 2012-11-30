@@ -6,6 +6,10 @@ class SinatraApp < Sinatra::Base
   enable :sessions
   use Rack::Flash
 
+  class ApplicationController < SinatraApp
+    map '/'
+  end
+
   class GameController < SinatraApp
     map '/game'
   end
