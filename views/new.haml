@@ -1,0 +1,9 @@
+-if flash[:alert]
+  #alert
+    =flash[:alert]
+-else
+  So, you'd like to start a new game, eh?
+%form(name="new_game" action="/game/create" method="post")
+  %label(for="name")Name:
+  %input(type="text" name="name")
+  %input(type="submit" value="Start a New Game!")
