@@ -1,0 +1,75 @@
+= Modular Sinatra
+
+This is a base for a medium sized Sinatra application.
+
+== Setup
+
+This application uses Bundler to manage your gems and Rack as the webserver interface.  
+Install them both if you don't have them:
+
+  gem install bundler rack
+
+Sinatra, Rack Flash, and Haml are included by default in the Gemfile and are required for
+the example app.  However, only Sinatra is required while building your own application.
+
+After editing the Gemfile to your liking:
+
+  bundle install
+
+Now, you should be good to go.
+
+== Usage
+
+Initialize controllers in `app-dir/application.rb`.  You can put routes for each controller
+in this file or you can delegate routes to their own file (`app-dir/controllers/example_controller.rb`).
+See the Controllers and Namespaced Routes section below for more details.
+
+Other than controllers, this app follows a typical directory format for a Sinatra app:
+
+modular_sinatra/
+├── config
+├── controllers
+├── lib
+├── log
+├── public
+└── views
+
+To start up a local server:
+
+  rackup
+
+== Controllers and Namespaced Routes
+
+To maintain some sanity when dealing with lots of routes on a mid-sized web app, use the
+controller scheme provided here.  Each controller controls the routes in a particular namespace.
+For example, the provided `GameController` serves routes within the `yoursite.com/game/` namespace.
+
+To add a controller: 
+* initialize it in application.rb and make it a subclass of the application class
+* add a mapping to the desired namespace
+
+  app_dir/application.rb
+  class SinatraApp < Sinatra::Base
+    # ... some config stuff
+    
+    class ExampleController < SinatraApp
+      map('/example')
+    end
+  end
+
+* Add Sinatra routes inside application.rb or to a file in the controllers directory 
+  * this file should end with '_controller.rb'
+  * The controller class needs to be nested inside the application class for the route methods to be recognized
+
+  # app_dir/controllers/example_controller.rb
+  class SinatraApp
+    class ExampleController
+      get('/say_hi') do   # => GET /example/say_hi
+        'hello world'
+      end
+    end
+  end
+
+== Advanced
+
+Load additional files or directories of files in `app-dir/config/boot.rb`.
