@@ -61,7 +61,7 @@ To add a controller:
   * this file should end with '_controller.rb'
   * The controller class needs to be nested inside the application class for the route methods to be recognized
 
-  # app_dir/controllers/example_controller.rb
+  app_dir/controllers/example_controller.rb
   class SinatraApp
     class ExampleController
       get('/say_hi') do   # => GET /example/say_hi
