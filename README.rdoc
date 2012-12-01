@@ -26,13 +26,13 @@ See the Controllers and Namespaced Routes section below for more details.
 
 Other than controllers, this app follows a typical directory format for a Sinatra app:
 
-modular_sinatra/<br>
-├── config<br>
-├── controllers<br>
-├── lib<br>
-├── log<br>
-├── public<br>
-└── views<br>
+  modular_sinatra/
+  ├── config
+  ├── controllers
+  ├── lib
+  ├── log
+  ├── public
+  └── views
 
 To start up a local server:
 
