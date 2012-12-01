@@ -26,13 +26,13 @@ See the Controllers and Namespaced Routes section below for more details.
 
 Other than controllers, this app follows a typical directory format for a Sinatra app:
 
-modular_sinatra/
-├── config
-├── controllers
-├── lib
-├── log
-├── public
-└── views
+modular_sinatra/<br>
+├── config<br>
+├── controllers<br>
+├── lib<br>
+├── log<br>
+├── public<br>
+└── views<br>
 
 To start up a local server:
 
@@ -48,6 +48,7 @@ To add a controller:
 * initialize it in application.rb and make it a subclass of the application class
 * add a mapping to the desired namespace
 
+For Example:
   app_dir/application.rb
   class SinatraApp < Sinatra::Base
     # ... some config stuff
@@ -61,6 +62,7 @@ To add a controller:
   * this file should end with '_controller.rb'
   * The controller class needs to be nested inside the application class for the route methods to be recognized
 
+For Example:
   app_dir/controllers/example_controller.rb
   class SinatraApp
     class ExampleController
