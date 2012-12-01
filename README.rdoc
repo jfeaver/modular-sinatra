@@ -27,12 +27,12 @@ See the Controllers and Namespaced Routes section below for more details.
 Other than controllers, this app follows a typical directory format for a Sinatra app:
 
   modular_sinatra/
-  ├── config
-  ├── controllers
-  ├── lib
-  ├── log
-  ├── public
-  └── views
+  ├── config      # just a boot file for now
+  ├── controllers # where all the routes live, non-namespaced routes go to ApplicationController
+  ├── lib         # models, other classes/modules
+  ├── log         # Note: Logger isn't included by default
+  ├── public      # assets, images, stylsheets go here
+  └── views       # Application layout at layout.haml
 
 To start up a local server:
 
